@@ -1,13 +1,13 @@
 from django.shortcuts import render
 
+from .mocks import Post
+
 # Create your views here.
 def index(request):
-    posts = [
-        {'id': 1, 'title': 'First post', 'body': 'This is my first post'},
-        {'id': 2, 'title': 'Second post', 'body': 'This is my second post'},
-        {'id': 3, 'title': 'Third post', 'body': 'This is my third post'},
-    ]
+    posts = Post.all()
     return render(request, 'blog/index.html', {'posts': posts})
 
-def show(request):
+def show(request, id):
+    post = Post.find(id)
+    return render(request, 'blog/show.html', {'post': post})
     

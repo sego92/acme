@@ -26,5 +26,7 @@ handler500 = 'acme.views.handler500'
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home, name='home'),
+    url(r'^about/$', views.about, name='about'),
+    url(r'^contact/$', views.home, name='contact'),
     url(r'^blog/', include(blog_urls)),
 ]
